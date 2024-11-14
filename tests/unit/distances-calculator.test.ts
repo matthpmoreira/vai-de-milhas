@@ -21,4 +21,15 @@ describe("Tests for calculating distances", () => {
     expect(distanceKm).toBeCloseTo(13638.2);
     expect(distanceMiles).toBeCloseTo(8474.48493319017);
   });
+
+  it("should calculate trip distance correctly", () => {
+    const origin = { lat: -28, long: -48 };
+    const destination = { lat: 48, long: 16 };
+
+    const distanceKm = calculateDistance(origin, destination);
+    const distanceMiles = calculateDistance(origin, destination, true);
+
+    expect(distanceKm).toEqual(10581);
+    expect(distanceMiles).toEqual(6575);
+  });
 });
